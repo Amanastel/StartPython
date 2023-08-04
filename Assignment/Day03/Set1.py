@@ -139,6 +139,7 @@ result = factorial(input_number)
 print(f"Factorial of {input_number} is {result}.")
 
 
+print("Hello World")
 # Q9
 
 def fibonacci_sequence(n):

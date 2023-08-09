@@ -1,11 +1,12 @@
+
+myvenv/
+
+
+
 # Ignore compiled Python files
 __pycache__/
 *.pyc
 
-# Ignore virtual environment
-myvenv/
-env/
-*.env
 
 # Ignore sensitive configuration
 *.secret

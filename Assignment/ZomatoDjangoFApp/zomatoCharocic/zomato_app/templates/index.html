@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.rtl.min.css" integrity="sha384-PRrgQVJ8NNHGieOA1grGdCTIt4h21CzJs6SnWH4YMQ6G5F5+IEzOHz67L4SQaF0o" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body {
+      background-image: url('https://camo.githubusercontent.com/5d34348ce6906feb270f432125f482c39dea48d282d1a133b33d8630596d872e/68747470733a2f2f6d69722d73332d63646e2d63662e626568616e63652e6e65742f70726f6a6563745f6d6f64756c65732f66732f33383865636137323931343833352e356266373931373739383665342e6a7067');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .card-columns {
+      column-count: 3;
+      gap: 1rem;
+    }
+    .card {
+      border: none;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      transition: transform 0.3s ease-in-out;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card-img-top {
+      height: 200px; /* Adjust the height as needed */
+      object-fit: cover; /* Maintain aspect ratio and cover container */
+    }
+    .card-body {
+      padding: 10px;
+    }
+    .btn-primary {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Zomato Chronicles</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+
+    <hr>
+
+
+    <!-- Card Section for Buttons -->
+    <div class="card-columns">
+      <!-- Existing cards -->
+
+      <div class="card">
+        <img src="https://img.freepik.com/free-photo/top-view-meals-tasty-yummy-different-pastries-dishes-brown-surface_140725-14554.jpg" class="card-img-top" alt="Add Dish Image">
+        <div class="card-body">
+          <h5 class="card-title">Add Dish</h5>
+          <p class="card-text">Click here to add a new dish.</p>
+          <a href="/add_dish" class="btn btn-primary">Add Dish</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://marketplace.canva.com/EAFI_i7T__g/1/0/1131w/canva-brown-black-modern-restaurant-food-menu-portrait-MqWj4UijfwU.jpg" class="card-img-top" alt="Add Dish To Menu Image">
+        <div class="card-body">
+          <h5 class="card-title">Add Dish To Menu</h5>
+          <p class="card-text">Add a dish to the menu for customers to order.</p>
+          <a href="/add_dish_to_menu" class="btn btn-primary">Add to Menu</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://c8.alamy.com/comp/M709Y3/customers-blue-flat-design-web-icon-M709Y3.jpg" class="card-img-top" alt="View Customers Image">
+        <div class="card-body">
+          <h5 class="card-title">View All Customers</h5>
+          <p class="card-text">View a list of all registered customers.</p>
+          <a href="/view_customers" class="btn btn-primary">View Customers</a>
+        </div>
+      </div>
+
+      <!-- Additional cards -->
+
+      <div class="card">
+        <img src="https://tamilnilam.tn.gov.in/citizen/images1/reg.png" class="card-img-top" alt="Register Customer Image">
+        <div class="card-body">
+          <h5 class="card-title">Register Customer</h5>
+          <p class="card-text">Register a new customer.</p>
+          <a href="/add_customer" class="btn btn-primary">Register Customer</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://img.freepik.com/free-vector/top-view-restaurant-menu-food_23-2148913695.jpg?w=2000" class="card-img-top" alt="View Menu Image">
+        <div class="card-body">
+          <h5 class="card-title">View Menu</h5>
+          <p class="card-text">View the available menu items.</p>
+          <a href="/view_menu" class="btn btn-primary">View Menu</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://cff2.earth.com/uploads/2018/05/25181257/Restaurant-music-actually-affects-what-you-order-study-finds.jpg" class="card-img-top" alt="Order Food Image">
+        <div class="card-body">
+          <h5 class="card-title">Order Food</h5>
+          <p class="card-text">Place an order for food.</p>
+          <a href="/add-order" class="btn btn-primary">Order Food</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-Hww

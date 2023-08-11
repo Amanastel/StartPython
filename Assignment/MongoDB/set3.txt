@@ -1,0 +1,89 @@
+# Set 3: Intermediate Level
+
+**Set 3: Intermediate Level**
+
+We'll continue with a **`Rides`** table / collection for this set of problems. The schema represents a list of rides one might find in a ride-hailing app like Uber. Each ride has an **`id`**, **`driver_id`**, **`passenger_id`**, **`start_location`**, **`end_location`**, **`distance`** (in miles), **`ride_time`** (in minutes), and **`fare`** (in dollars).
+
+**MongoDB Schema:**
+
+```
+{
+  "_id": ObjectId(),
+  "driver_id": ObjectId(),
+  "passenger_id": ObjectId(),
+  "start_location": String,
+  "end_location": String,
+  "distance": Number,
+  "ride_time": Number,
+  "fare": Number
+}
+
+```
+
+**SQL Schema:**
+
+```
+CREATE TABLE Rides (
+    id INT PRIMARY KEY,
+    driver_id INT,
+    passenger_id INT,
+    start_location VARCHAR(255),
+    end_location VARCHAR(255),
+    distance DECIMAL(5,2),
+    ride_time DECIMAL(5,2),
+    fare DECIMAL(6,2)
+);
+
+```
+
+**Problem 26:**
+
+- **Prerequisite**: Understand creating tables in SQL / collections in MongoDB
+- **Problem**: Create a **`Rides`** table / collection with the fields defined above.
+
+db.Rides.insertMany([
+  {
+    "_id": 6,
+    "driver_id": 4,
+    "passenger_id": 6,
+    "start_location": "San Francisco",
+    "end_location": "Palo Alto",
+    "distance": 30,
+    "ride_time": 1.5,
+    "fare": 25
+  },
+  {
+    "_id": 7,
+    "driver_id": 3,
+    "passenger_id": 7,
+    "start_location": "New York",
+    "end_location": "Boston",
+    "distance": 215,
+    "ride_time": 4.5,
+    "fare": 180
+  },
+  {
+    "_id": 8,
+    "driver_id": 5,
+    "passenger_id": 8,
+    "start_location": "Los Angeles",
+    "end_location": "Las Vegas",
+    "distance": 270,
+    "ride_time": 5.25,
+    "fare": 300
+  }
+]);
+
+
+- db.rides.find().sort({fare:-1})
+
+- db.rides.aggregate([{$group:{_id:null,totalDistance:{$sum:'$distance'},totalFare:{$sum:'$fare'}}}])
+- db.rides.aggregate([{$group:{_id:null,avgRideTime:{$avg:'$ride_time'}}}])
+- db.rides.find({$or:[{start_location:{$regex:'Downtown',$options:'i'}},{end_location:{$regex:'Downtown',$options:'i'}}]})
+- db.rides.countDocuments({driver_id:2})
+2
+db.rides.updateOne({_id:4},{$set:{fare:65}})
+
+db.rides.aggregate([{$group:{_id:"$driver_id",TotalFares:{$sum:"$fare"}}}])
+
+db.rides.deleteOne({_id:2})

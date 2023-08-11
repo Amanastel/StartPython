@@ -1,0 +1,9 @@
+
+- db.rides.find().sort({fare:1}).limit(1)
+
+- db.rides.find().sort({fare:-1}).limit(1)
+
+- db.rides.aggregate([{$group:{_id:"$driver_id",AverageFare:{$avg:"$fare"},AverageDistance:{$avg:"$distance"}}}])
+
+- db.rides.aggregate([{$group:{_id:"$driver_id",TotalRides:{$sum:1}}},{$match:{TotalRides:{$gt:5}}}])
+db.Driver.insertMany([{driver_id:1,name:"rahul"},{driver_id:2,name:"Aman"}])

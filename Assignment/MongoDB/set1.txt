@@ -1,0 +1,91 @@
+
+db.createCollection("Customers")
+db.Customers.insertOne({
+    id: 1,
+    name: "John Doe",
+    email: "john@example.com",
+    address: "123 Main St, City",
+    phone_number: "123-456-7890"
+})
+
+
+db.Customers.insertMany([
+    {
+        id: 2,
+        name: "Aane Smith",
+        email: "jane@example.com",
+        address: "456 Elm St, Town",
+        phone_number: "987-654-3210"
+    },
+    {
+        id: 3,
+        name: "Mike Johnson",
+        email: "mike@example.com",
+        address: "789 Oak Ave, Village",
+        phone_number: "555-123-4567"
+    },
+    {
+        id: 4,
+        name: "Emily Brown",
+        email: "emily@example.com",
+        address: "567 Pine Rd, Hamlet",
+        phone_number: "111-222-3333"
+    },
+    {
+        id: 5,
+        name: "David Lee",
+        email: "david@example.com",
+        address: "234 Maple Ln, City",
+        phone_number: "777-888-9999"
+    },
+    {
+        id: 6,
+        name: "Sophia Wilson",
+        email: "sophia@example.com",
+        address: "789 Cherry Blvd, Suburb",
+        phone_number: "444-555-6666"
+    }
+])
+
+db.Customers.find({}, { name: 2, email: 2, _id: 0 })
+db.Customers.find({ name: /^A/ })
+db.Customers.find().sort({ phone_number: 1 })
+db.Customers.updateOne(
+    { id: 4 },
+    { $set: { address: "New Delhi, India" }  }
+)
+
+db.Customers.find().sort({ id: 1 }).limit(3)
+db.Customers.find({id: 4})
+db.Customers.deleteOne({ id: 2 })
+db.Customers.find()
+
+const customerCount = db.Customers.countDocuments()
+print("Number of customers:", customerCount)
+
+db.Customers.find().sort({ id: 1 }).skip(2)
+
+db.Customers.find({
+    id: { $gt: 2 },
+    name: /^B/
+})
+
+
+db.Customers.find().sort({name:1})
+
+
+db.Customers.find().sort({name:-1})
+
+db.Customers.updateOne({ _id: ObjectId("64d5f4ab0ae8a421acaa2dc1")},{$Set:{address:'Bengluru'}})
+MongoServerError: Unknown modifier: $Set. Expected a valid update modifier or pipeline-style update specified as an array
+db.Customers.updateOne({ _id: ObjectId("64d5f4ab0ae8a421acaa2dc1")},{$set:{address:'Bengluru'}})
+
+db.Customers.find().sort({_id:-1}).limit(3)
+
+db.Customers.deleteOne({ _id: ObjectId("64d5f5600ae8a421acaa2dc5")})
+
+
+db.Customers.find({_id:{$gt:64d5f4ab0ae8a421acaa2dc1},name:{$regex:'^A',$options:'i'}})
+db.Customers.find({_id:{$gt:64d5f4ab0ae8a421acaa2dc1},name:{$regex:'^A',$options:'i'}})
+db.Customers.find({_id:{$gt:'64d5f4ab0ae8a421acaa2dc1'},name:{$regex:'^A',$options:'i'}})
+db.Customers.find({_id:{$gt:'64d5f4ab0ae8a421acaa2dc1'},name:{$regex:'A',$options:'i'}})

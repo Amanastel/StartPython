@@ -1,0 +1,61 @@
+db.restaurants.find()
+
+db.restaurants.insertMany([{ _id: 2,
+  name: 'Restaurant02',
+  cuisine_type: 'Indian',
+  location: 'Delhi',
+  average_rating: 4.5,
+  delivery_available: true},{ _id: 3,
+  name: 'Restaurant3',
+  cuisine_type: 'Russian',
+  location: '123 Main St, City',
+  average_rating: 4.9,
+  delivery_available: true},{ _id: 4,
+  name: 'Restaurant4',
+  cuisine_type: 'American',
+  location: 'Vivekananda',
+  average_rating: 4.6,
+  delivery_available: true},{ _id: 5,
+  name: 'Restaurant5',
+  cuisine_type: 'Nepal',
+  location: 'Random',
+  average_rating: 4.0,
+  delivery_available: true}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': 2,
+    '1': 3,
+    '2': 4,
+    '3': 5
+  }
+}
+
+
+db.restaurants.find().sort({average_rating:-1})
+
+
+
+
+db.restaurants.find({delivery_available:true,average_rating:{$gt:4}})
+
+db.restaurants.find({$or:[{cuisine_type:{$exists: false}},{cuisine_type:null}]})
+
+db.restaurants.insertOne({_id: 5,
+  name: 'Restaurant5',
+  cuisine_type: 'American',
+  location: 'Vivekananda',
+  average_rating: 3.9,
+  delivery_available: false})
+
+  db.restaurants.countDocuments({delivery_available:true})
+
+  db.restaurants.find({location:'New York'})
+
+  db.restaurants.aggregate([{$group:{_id:null,averageRating:{$avg:"average_rating"}}}])
+
+  db.restaurants.aggregate([{$group:{_id:null,averageRating:{$avg:"$average_rating"}}}])
+
+  db.restaurants.find().sort({average_rating:-1}).limit(5)
+
+  db.restaurants.deleteOne({_id:7})
